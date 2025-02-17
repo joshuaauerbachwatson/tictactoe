@@ -27,8 +27,8 @@ struct TicTacToeCellView: View {
     private func cellTouched() {
         if value == CellUnoccupied {
             handle.cells[path[0]][path[1]] = model.thisPlayer
+            model.yield() // yield _before_ setting winner bit so other side is informed
             model.winner = handle.possibleWinner()
-            model.yield()
         } // Ignore touches on occupied cells
     }
 
@@ -83,6 +83,8 @@ struct TicTacToeCellView: View {
 }
 
 struct TicTacToeView: View {
+    @Environment(UnigameModel.self) var model
+    @Environment(TicTacToeHandle.self) var handle
     @State private var size: CGFloat = CGFloat.zero
     var body: some View {
         ZStack {
@@ -104,7 +106,11 @@ struct TicTacToeView: View {
                     }
                 }
             }
-
+            .onAppear {
+                // Bit of a hack: create backpointer from handle to model.
+                // This should really be supplied by unigame.
+                handle.model = model
+            }
         }
     }
 }
