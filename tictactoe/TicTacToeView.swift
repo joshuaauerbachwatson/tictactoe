@@ -83,8 +83,6 @@ struct TicTacToeCellView: View {
 }
 
 struct TicTacToeView: View {
-    @Environment(UnigameModel.self) var model
-    @Environment(TicTacToeHandle.self) var handle
     @State private var size: CGFloat = CGFloat.zero
     var body: some View {
         ZStack {
@@ -105,11 +103,6 @@ struct TicTacToeView: View {
                         }
                     }
                 }
-            }
-            .onAppear {
-                // Bit of a hack: create backpointer from handle to model.
-                // This should really be supplied by unigame.
-                handle.model = model
             }
         }
     }
