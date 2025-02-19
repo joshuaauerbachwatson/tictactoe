@@ -23,7 +23,11 @@ let CellUnoccupied = 3
 @Observable
 class TicTacToeHandle: GameHandle {
     // Weak pointer to the model
-    weak var model: UnigameModel?
+    weak var model: UnigameModel? {
+        didSet {
+            model?.helpHandle = TicTacToeHelp()
+        }
+    }
     
     // The cells of the game.
     // A 3 indicates the cell is unoccupied.
