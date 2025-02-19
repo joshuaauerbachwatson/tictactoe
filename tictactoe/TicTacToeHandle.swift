@@ -32,7 +32,7 @@ class TicTacToeHandle: GameHandle {
     var cells = [[Int]](repeating: [Int](repeating: CellUnoccupied, count: 3), count: 3)
 
     // The token provider (GameHandle)
-    var tokenProvider: TokenProvider? = nil // none for now
+    var tokenProvider: TokenProvider? = Auth0TokenProvider()
     
     // Possible numbers of players (GameHandle)
     var numPlayerRange = 1...2    // TODO figure out how this game works in solitaire mode
