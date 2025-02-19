@@ -25,11 +25,11 @@ struct TicTacToeCellView: View {
     }
     
     private func cellTouched() {
-        if value == CellUnoccupied {
+        if value == CellUnoccupied && model.thisPlayersTurn {
             handle.cells[path[0]][path[1]] = model.thisPlayer
             model.yield() // yield _before_ setting winner bit so other side is informed
             model.winner = handle.possibleWinner()
-        } // Ignore touches on occupied cells
+        } // Ignore touches on occupied cells or when it isn't your turn
     }
 
     var body: some View {
