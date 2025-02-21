@@ -7,5 +7,12 @@
 		<string>_tictactoe._tcp</string>
 		<string>_tictactoe._udp</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageName</key>
+		<string>launch-img.png</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<false/>
+	</dict>
 </dict>
 </plist>
