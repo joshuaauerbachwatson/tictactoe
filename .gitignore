@@ -63,3 +63,4 @@ fastlane/test_output
 
 #Added
 Package.resolved
+.DS_Store
