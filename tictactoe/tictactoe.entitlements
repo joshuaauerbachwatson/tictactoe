@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>webcredentials:dev-qgbnpsat0jeusf7w.us.auth0.com</string>
+		<string>webcredentials:auth.auerbachsoftware.com</string>
 	</array>
 </dict>
 </plist>
