@@ -23,13 +23,10 @@ struct tictactoeApp: App {
     @State private var model = UnigameModel(gameHandle: TicTacToeHandle.self)
     var body: some Scene {
         WindowGroup {
-            if let handle = model.gameHandle as? TicTacToeHandle {
-                unigame.ContentView()
-                    .environment(model)
-                    .environment(handle)
-            } else {
-                Logger.logFatalError("Inexplicably, the gameHandle is not a TicTacToeHandle")
-            }
+            let handle = model.gameHandle
+            unigame.ContentView<TicTacToeHandle>()
+                .environment(model)
+                .environment(handle)
         }
     }
 }

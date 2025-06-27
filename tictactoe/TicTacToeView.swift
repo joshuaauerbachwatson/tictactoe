@@ -13,7 +13,7 @@ struct TicTacToeCellView: View {
     // Based on
     // https://gist.github.com/berikv/44ec3a531ebff1a5c95c95532b119df4
     // Adjusted to use unigame
-    @Environment(UnigameModel.self) var model
+    @Environment(UnigameModel<TicTacToeHandle>.self) var model
     @Environment(TicTacToeHandle.self) var handle
     
     let path: IndexPath

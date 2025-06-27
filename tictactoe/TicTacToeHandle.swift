@@ -24,7 +24,7 @@ let CellUnoccupied = 3
 final class TicTacToeHandle: GameHandle {
     
     // Weak pointer to the model
-    weak var model: UnigameModel?
+    weak var model: UnigameModel<TicTacToeHandle>?
     
     var helpHandle: any HelpHandle = TicTacToeHelp()
     
