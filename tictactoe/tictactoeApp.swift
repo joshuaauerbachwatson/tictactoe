@@ -20,7 +20,7 @@ import AuerbachLook
 
 @main
 struct tictactoeApp: App {
-    @State private var model = UnigameModel(gameHandle: TicTacToeHandle())
+    @State private var model = UnigameModel(gameHandle: TicTacToeHandle.self)
     var body: some Scene {
         WindowGroup {
             if let handle = model.gameHandle as? TicTacToeHandle {
