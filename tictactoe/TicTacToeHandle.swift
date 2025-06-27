@@ -21,7 +21,7 @@ import AuerbachLook
 let CellUnoccupied = 3
 
 @Observable
-class TicTacToeHandle: GameHandle {
+final class TicTacToeHandle: GameHandle {
     
     // Weak pointer to the model
     weak var model: UnigameModel?
