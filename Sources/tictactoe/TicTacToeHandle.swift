@@ -21,14 +21,16 @@ import AuerbachLook
 let CellUnoccupied = 3
 
 @Observable
-final class TicTacToeHandle: GameHandle {
+public final class TicTacToeHandle: GameHandle {
+    
+    public init() {}
     
     // Weak pointer to the model
-    weak var model: UnigameModel<TicTacToeHandle>?
+    public weak var model: UnigameModel<TicTacToeHandle>?
     
-    var helpHandle: any HelpHandle = TicTacToeHelp()
+    public var helpHandle: any HelpHandle = TicTacToeHelp()
     
-    var initialScoring: unigame.Scoring = .Off
+    public var initialScoring: unigame.Scoring = .Off
 
     // The cells of the game.
     // A 3 indicates the cell is unoccupied.
@@ -37,13 +39,13 @@ final class TicTacToeHandle: GameHandle {
     var cells = [[Int]](repeating: [Int](repeating: CellUnoccupied, count: 3), count: 3)
 
     // The token provider (GameHandle)
-    var tokenProvider: TokenProvider? = Auth0TokenProvider()
+    public var tokenProvider: TokenProvider? = Auth0TokenProvider()
     
     // Possible numbers of players (GameHandle)
-    var numPlayerRange = 1...2    // TODO figure out how this game works in solitaire mode
+    public var numPlayerRange = 1...2    // TODO figure out how this game works in solitaire mode
 
     // Reset for new game.  This consists in emptying the cell grid (GameHandle)
-    func reset() {
+    public func reset() {
         cells = [[Int]](repeating: [Int](repeating: CellUnoccupied, count: 3), count: 3)
     }
     
@@ -87,7 +89,7 @@ final class TicTacToeHandle: GameHandle {
     }
     
     // Receive a new game state consisting of cells contents (GameHandle)
-    func stateChanged(_ data: [UInt8]) -> (any Error)? {
+    public func stateChanged(_ data: [UInt8]) -> (any Error)? {
         Logger.log("stateChanged: data=\(data)")
         // Update cells all at once to avoid artifacts
         var cells = self.cells
@@ -105,7 +107,7 @@ final class TicTacToeHandle: GameHandle {
     }
     
     // Encode the current game state consiting of cells contents (GameHandle)
-    func encodeState(duringSetup: Bool) -> [UInt8] {
+    public func encodeState(duringSetup: Bool) -> [UInt8] {
         var data = [UInt8]()
         Logger.log("encodeState: cells=\(cells)")
         for rowIndex in 0...2 {
@@ -118,11 +120,11 @@ final class TicTacToeHandle: GameHandle {
     }
     
     // This game has no setup view (GameHandle)
-    var setupView: (any View)? = nil
+    public var setupView: (any View)? = nil
     
     // The playing view (GameHandle)
-    var playingView: any View = TicTacToeView()
+    public var playingView: any View = TicTacToeView()
     
     // The app id (must correspond to Bonjour declaration in info.plist) (GameHandle)
-    var appId = "tictactoe"
+    public var appId = "tictactoe"
 }
