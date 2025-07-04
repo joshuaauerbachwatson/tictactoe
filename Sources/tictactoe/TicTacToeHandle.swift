@@ -23,7 +23,9 @@ let CellUnoccupied = 3
 @Observable
 public final class TicTacToeHandle: GameHandle {
     
-    public init() {}
+    public static func makeModel() -> UnigameModel<TicTacToeHandle> {
+        return UnigameModel(gameHandle: TicTacToeHandle())
+    }
     
     // Weak pointer to the model
     public weak var model: UnigameModel<TicTacToeHandle>?
