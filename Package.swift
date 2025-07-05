@@ -27,6 +27,7 @@ let package = Package(
                 .product(name: "AuerbachLook", package: "auerbachlook"),
                 .product(name: "unigame", package: "unigame")
             ],
+            resources: [.process("Resources")],
         )
     ]
 )

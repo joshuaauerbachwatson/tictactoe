@@ -27,7 +27,7 @@ struct TicTacToeHelp: HelpHandle {
     var tipResetter: (any TipResetter)? = nil
     
     init() {
-        guard let path = Bundle.main.url(forResource: "TicTacToeHelp", withExtension: "html") else {
+        guard let path = Bundle.module.url(forResource: "TicTacToeHelp", withExtension: "html") else {
             Logger.logFatalError("Help for TicTacToe could not be found")
         }
         baseURL = path
