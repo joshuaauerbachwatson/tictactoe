@@ -40,9 +40,6 @@ public final class TicTacToeHandle: GameHandle {
     // By convention, the player with player index 0 always plays "x"
     var cells = [[Int]](repeating: [Int](repeating: CellUnoccupied, count: 3), count: 3)
 
-    // The token provider (GameHandle)
-    public var tokenProvider: TokenProvider? = Auth0TokenProvider()
-    
     // Possible numbers of players (GameHandle)
     public var numPlayerRange = 1...2    // TODO figure out how this game works in solitaire mode
 
