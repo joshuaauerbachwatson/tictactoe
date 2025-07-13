@@ -24,6 +24,7 @@ let CellUnoccupied = 3
 public final class TicTacToeHandle: GameHandle {
     
     public static func makeModel() -> UnigameModel<TicTacToeHandle> {
+        Logger.log("TicTacToeHandle is requested to make a UnigameModel")
         return UnigameModel(gameHandle: TicTacToeHandle())
     }
     
