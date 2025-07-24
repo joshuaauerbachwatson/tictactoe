@@ -125,6 +125,9 @@ public final class TicTacToeHandle: GameHandle {
     // The playing view (GameHandle)
     public var playingView: any View = TicTacToeView()
     
-    // The app id (must correspond to Bonjour declaration in info.plist) (GameHandle)
-    public var appId = "tictactoe"
+    // The gameId (must correspond to Bonjour declaration in info.plist) (GameHandle)
+    public var gameId = "tictactoe"
+    
+    // The human-friendly game name
+    public var gameName = "Tic Tac Toe"
 }
