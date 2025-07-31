@@ -23,10 +23,9 @@ let CellUnoccupied = 3
 @Observable
 public final class TicTacToeHandle: GameHandle {
     
-    public static func makeModel() -> UnigameModel<TicTacToeHandle> {
-        Logger.log("TicTacToeHandle is requested to make a UnigameModel")
-        return UnigameModel(gameHandle: TicTacToeHandle())
-    }
+    public static var instance: UnigameModel<TicTacToeHandle>? = nil
+    
+    public init() {}
     
     // Weak pointer to the model
     public weak var model: UnigameModel<TicTacToeHandle>?
@@ -44,9 +43,9 @@ public final class TicTacToeHandle: GameHandle {
     // Possible numbers of players (GameHandle)
     public var numPlayerRange = 1...2    // TODO figure out how this game works in solitaire mode
 
-    // Reset for new game.  This consists in emptying the cell grid (GameHandle)
-    public func reset() {
-        cells = [[Int]](repeating: [Int](repeating: CellUnoccupied, count: 3), count: 3)
+    // End the game
+    public func endGame() {
+        Self.instance = nil
     }
     
     // If someone has one the game, return their player index, else return nil
