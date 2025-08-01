@@ -23,12 +23,9 @@ let CellUnoccupied = 3
 @Observable
 public final class TicTacToeHandle: GameHandle {
     
-    public static var instance: UnigameModel<TicTacToeHandle>? = nil
+    public static var savedModel: UnigameModel<TicTacToeHandle>? = nil
     
     public init() {}
-    
-    // Weak pointer to the model
-    public weak var model: UnigameModel<TicTacToeHandle>?
     
     public var helpHandle: any HelpHandle = TicTacToeHelp()
     
@@ -45,7 +42,7 @@ public final class TicTacToeHandle: GameHandle {
 
     // End the game
     public func endGame() {
-        Self.instance = nil
+        Self.savedModel = nil
     }
     
     // If someone has one the game, return their player index, else return nil
